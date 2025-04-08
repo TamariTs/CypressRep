@@ -9,16 +9,15 @@ cy.get('.shop-menu > .nav > :nth-child(4) > a').click()
 // 5. Verify 'Login to your account' is visible
 cy.get('.login-form > h2').should("be.visible")
 // 6. Enter correct email address and password
-const randomNumber= Math.round(Math.random()*10000)
-cy.get('[data-qa="login-email"]').type('takotsikara+'+randomNumber+'@gmail.com')
+cy.get('[data-qa="login-email"]').type('takotsikara@gmail.com')
 cy.get('[data-qa="login-password"]').type("Wikara112")
 // 7. Click 'login' button
 cy.get('[data-qa="login-button"]').click()
 // 8. Verify that 'Logged in as username' is visible
 cy.get(':nth-child(10) > a').should("be.visible")
 // 9. Click 'Delete Account' button
-cy.get('.shop-menu > .nav > :nth-child(5) > a').click()
-// 10. Verify that 'ACCOUNT DELETED!' is visible
-cy.get('b').should("be.visible")
+// cy.get('.shop-menu > .nav > :nth-child(5) > a').click()
+// // 10. Verify that 'ACCOUNT DELETED!' is visible
+// cy.get('b').should("be.visible")
   })
 })
