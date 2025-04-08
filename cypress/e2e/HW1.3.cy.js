@@ -9,7 +9,7 @@ describe('template spec', () => {
     cy.get('.login-form > h2').should("have.text", 'Login to your account')
     // 6. Enter incorrect email address and password
     cy.get('[data-qa="login-email"]').type("takotsikara@gmail.com")
-    cy.get('[data-qa="login-password"]').type("Wikara112")
+    cy.get('[data-qa="login-password"]').type("Wikara113")
     // 7. Click 'login' button
     cy.get('[data-qa="login-button"]').click()
     // 8. Verify error 'Your email or password is incorrect!' is visible
