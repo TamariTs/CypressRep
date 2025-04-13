@@ -8,7 +8,7 @@ describe('template spec', () => {
     cy.visit('http://automationexercise.com')
     cy.Login2(this.Incorrect.email, this.Incorrect.password)
 
-    // 4. Click on 'Signup / Login' button
+    //4. Click on 'Signup / Login' button
     //cy.get('.shop-menu > .nav > :nth-child(4) > a').click()
     // 5. Verify 'Login to your account' is visible
     cy.get('.login-form > h2').should("be.visible")
