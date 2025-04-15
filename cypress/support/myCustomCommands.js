@@ -1,0 +1,50 @@
+
+Cypress.Commands.add("registration", (Userdata)=>{
+    cy.get('.shop-menu > .nav > :nth-child(4) > a').click()
+    cy.get('.signup-form > h2').should("have.text", 'New User Signup!')
+    cy.get('[data-qa="signup-name"]').type(Userdata.signup)
+    cy.get('[data-qa="signup-email"]').type(Userdata.email)
+    cy.get('[data-qa="signup-button"]').click()
+    cy.get(':nth-child(1) > b').should("have.text",'Enter Account Information')
+    cy.get('#id_gender1').click()
+    cy.get('[data-qa="password"]').type(Userdata.password)
+    cy.get('[data-qa="days"]').select(3)
+    cy.get('[data-qa="months"]').select("March")
+    cy.get('[data-qa="years"]').select("1991")
+    cy.get('#newsletter').click()
+    cy.get('#optin').click()
+    cy.get('[data-qa="first_name"]').type(Userdata.firstname)
+    cy.get('[data-qa="last_name"]').type(Userdata.lastname)
+    cy.get('[data-qa="company"]').type(Userdata.company)
+    cy.get('[data-qa="address"]').type(Userdata.address)
+    cy.get('[data-qa="address2"]').type(Userdata.address2)
+    cy.get('[data-qa="country"]').select("United States")
+    cy.get('[data-qa="state"]').type("New York")
+    cy.get('[data-qa="city"]').type("New York")
+    cy.get('[data-qa="zipcode"]').type("07008")
+    cy.get('[data-qa="mobile_number"]').type(Userdata.mobileNumber)
+    cy.get('[data-qa="create-account"]').click()
+    cy.get('b').should("have.text", 'Account Created!' )
+    cy.get('[data-qa="continue-button"]').click()
+    cy.get(':nth-child(10) > a').should("be.visible")
+}
+
+)
+
+Cypress.Commands.add("login", (mail, password)=>{
+    cy.get('.col-xs-8 > .form-group > .btn-white').click()
+    cy.wait(400)
+    cy.get('#username').type(mail)
+    cy.wait(300)
+    cy.get('.form-control[name="password"]').first().type(password)
+    cy.get(':nth-child(6) > .btn').click()
+})
+
+Cypress.Commands.add("Login2", (email, password)=>{
+    cy.get('.shop-menu > .nav > :nth-child(4) > a').click()
+    cy.get('.login-form > h2').should("be.visible")
+    cy.get('[data-qa="login-email"]').type(email)
+    cy.get('[data-qa="login-password"]').type(password)
+    cy.get('[data-qa="login-button"]').click()
+
+})
